@@ -1,7 +1,7 @@
-Minecraft 1.8 - 1.15.2 AFK Fishing bot
+Minecraft 1.8 - 1.15.2 and 20w12a AFK Fishing bot
 =============
 ![Codacy grade](https://img.shields.io/codacy/grade/05f0f6a5d76444a1b710f911b661bf1d)
-[![GitHub issues](https://img.shields.io/github/issues/MrKinau/FishingBot)](https://github.com/MrKinau/FishingBot/issues)
+[![GitHub issues](https://img.shields.io/github/issues/RootRobo/FishingBot)](https://github.com/RootRobo/FishingBot/issues)
 [![GitHub](https://img.shields.io/github/license/MrKinau/FishingBot)](https://github.com/MrKinau/FishingBot/blob/master/LICENSE)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/MrKinau/FishingBot)](https://github.com/MrKinau/FishingBot/releases/latest)
 
@@ -47,6 +47,7 @@ Minecraft 1.8 - 1.15.2 AFK Fishing bot
 - 1.15
 - 1.15.1
 - 1.15.2
+- 20w12a (still in development)
 
 ## Contribution
 You are free to create a fork or a pull request to participate. You also can report bugs or request a new feature in the [issues](https://github.com/MrKinau/FishingBot/issues) tab (I will answer them as soon as possible)
