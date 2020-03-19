@@ -1,6 +1,8 @@
 /*
  * Created by David Luedtke (MrKinau)
  * 2019/5/5
+ * Edited/updated by RootRobo
+ * 2020/3/19
  */
 
 package systems.kinau.fishingbot.network.protocol.login;
@@ -31,10 +33,11 @@ public class PacketInLoginSuccess extends Packet {
 
     @Override
     public void read(ByteArrayDataInputWrapper in, NetworkHandler networkHandler, int length, int protocolId) throws IOException {
-        String uuidStr = readString(in).replace("-","");
+        //String uuidStr = readString(in).replace("-","");
+        String uuidStr = FishingBot.getInstance().getAuthData().getProfile();
         this.uuid = new UUID(new BigInteger(uuidStr.substring(0, 16), 16).longValue(), new BigInteger(uuidStr.substring(16), 16).longValue());
-        this.userName = readString(in);
-
+        //this.userName = readString(in);
+        this.userName = FishingBot.getInstance().getAuthData().getUsername();
         FishingBot.getInstance().getEventManager().callEvent(new LoginSuccessEvent(uuid, userName));
     }
 }
