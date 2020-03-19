@@ -3,7 +3,7 @@ Minecraft 1.8 - 1.15.2 and 20w12a AFK Fishing bot
 ![Codacy grade](https://img.shields.io/codacy/grade/05f0f6a5d76444a1b710f911b661bf1d)
 [![GitHub issues](https://img.shields.io/github/issues/RootRobo/FishingBot)](https://github.com/RootRobo/FishingBot/issues)
 [![GitHub](https://img.shields.io/github/license/RootRobo/FishingBot)](https://github.com/RootRobo/FishingBot/blob/master/LICENSE)
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/RootRobo/FishingBot)](https://github.com/RootRobo/FishingBot/releases/latest)
+[![GitHub release (latest by date)](https://img.shields.io/github/release/RootRobo/FishingBot)](https://github.com/RootRobo/FishingBot/releases/latest)
 
 ## Download
 - a list with all releases can be found [here](https://github.com/RootRobo/FishingBot/releases)
