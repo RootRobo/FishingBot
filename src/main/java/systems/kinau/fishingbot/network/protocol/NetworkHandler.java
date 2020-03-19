@@ -335,7 +335,33 @@ public class NetworkHandler {
         //Minecraft 1.15.2
         getPlayRegistryIn().get(ProtocolConstants.MINECRAFT_1_15_2).copyOf(getPlayRegistryIn().get(ProtocolConstants.MINECRAFT_1_15));
         getPlayRegistryOut().get(ProtocolConstants.MINECRAFT_1_15_2).copyOf(getPlayRegistryOut().get(ProtocolConstants.MINECRAFT_1_14));
+        
+        //20w12a
+        getPlayRegistryIn().get(ProtocolConstants.MINECRAFT_20W12A).registerPacket(0x00, PacketInSpawnObject.class);
+        getPlayRegistryIn().get(ProtocolConstants.MINECRAFT_20W12A).registerPacket(0x0E, PacketInDifficultySet.class);
+        getPlayRegistryIn().get(ProtocolConstants.MINECRAFT_20W12A).registerPacket(0x1B, PacketInDisconnect.class);
+        getPlayRegistryIn().get(ProtocolConstants.MINECRAFT_20W12A).registerPacket(0x21, PacketInKeepAlive.class);
+        getPlayRegistryIn().get(ProtocolConstants.MINECRAFT_20W12A).registerPacket(0x26, PacketInJoinGame.class);
+        getPlayRegistryIn().get(ProtocolConstants.MINECRAFT_20W12A).registerPacket(0x47, PacketInEntityVelocity.class); //changed, done
+        getPlayRegistryIn().get(ProtocolConstants.MINECRAFT_20W12A).registerPacket(0x45, PacketInEntityMetadata.class);//changed, done
+        getPlayRegistryIn().get(ProtocolConstants.MINECRAFT_20W12A).registerPacket(0x40, PacketInHeldItemChange.class);
+        getPlayRegistryIn().get(ProtocolConstants.MINECRAFT_20W12A).registerPacket(0x17, PacketInSetSlot.class);
+        getPlayRegistryIn().get(ProtocolConstants.MINECRAFT_20W12A).registerPacket(0x0F, PacketInChat.class);
+        getPlayRegistryIn().get(ProtocolConstants.MINECRAFT_20W12A).registerPacket(0x49, PacketInSetExperience.class); //changed, done
+        getPlayRegistryIn().get(ProtocolConstants.MINECRAFT_20W12A).registerPacket(0x34, PacketInPlayerListItem.class);
+        getPlayRegistryIn().get(ProtocolConstants.MINECRAFT_20W12A).registerPacket(0x36, PacketInPlayerPosLook.class);
 
+        getPlayRegistryIn().get(ProtocolConstants.MINECRAFT_20W12A).registerPacket(0x4A, PacketInSetHealth.class); //added, done
+        getPlayRegistryOut().get(ProtocolConstants.MINECRAFT_20W12A).registerPacket(0x04, PacketOutRespawn.class); //added, done
+
+        getPlayRegistryOut().get(ProtocolConstants.MINECRAFT_20W12A).registerPacket(0x00, PacketOutTeleportConfirm.class);
+        getPlayRegistryOut().get(ProtocolConstants.MINECRAFT_20W12A).registerPacket(0x03, PacketOutChat.class);
+        getPlayRegistryOut().get(ProtocolConstants.MINECRAFT_20W12A).registerPacket(0x05, PacketOutClientSettings.class);
+        getPlayRegistryOut().get(ProtocolConstants.MINECRAFT_20W12A).registerPacket(0x0F, PacketOutKeepAlive.class);
+        getPlayRegistryOut().get(ProtocolConstants.MINECRAFT_20W12A).registerPacket(0x2D, PacketOutUseItem.class);
+        getPlayRegistryOut().get(ProtocolConstants.MINECRAFT_20W12A).registerPacket(0x11, PacketOutPosition.class);
+        
+        
         //Register protocol of 1.15.1 for unknown versions
         if(!ProtocolConstants.SUPPORTED_VERSION_IDS.contains(FishingBot.getInstance().getServerProtocol())) {
             FishingBot.getLog().severe("This server is not running a supported protocol version: ProtocolVersion " + FishingBot.getInstance().getServerProtocol());
