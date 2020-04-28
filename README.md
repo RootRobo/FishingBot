@@ -18,11 +18,18 @@ Minecraft 1.8 - 1.15.2 and 20w12a AFK Fishing bot
 ## Features
 - Auto-Fishing Bot
 - Announces Loot/Level (also in Discord if wanted)
-- check the bots level with "\<username\>, Level?" in the chat (replace <username> with the account username of your bot)
+- chat commands
+- automatic respawn (a bit buggy but it works)
 - connect to every relevant minecraft version (realms included)
 - Offline and online mode
 - Use the bot console to chat
 - Want more? Feel free to request a feature to the original author [here](https://github.com/MrKinau/FishingBot/issues) or to me [here](https://github.com/RootRobo/FishingBot/issues) 
+
+## Commands (replace <username) with the account username of your bot)
+ - check the bots level with "\<username\>.level"
+ - check the bots health with "\<username\>.health"
+ - let the bot say anything with "\<username\>.say \<message\>"
+ - stop the bot using "\<username\>.stop" (to allow you to do this, you have to set your name in the config)
 
 ## Supported Versions
 - 1.8
