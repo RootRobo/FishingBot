@@ -34,14 +34,13 @@ public class ChatCommandModule extends Module implements Listener {
         String message = event.getText();
         String[] splitMessage = message.split(" ");
         String sender = splitMessage[0];
-        String command = splitMessage[1].replace(prefix,"");
-        String[] args = Arrays.stream(splitMessage).skip(2).toArray(String[]::new);
 
         if(!message.startsWith(sender + " " + prefix)) {
             //FishingBot.getLog().info("Mesage was not a command.");
             return;
         }
-
+        String command = splitMessage[1].replace(prefix,"");
+        String[] args = Arrays.stream(splitMessage).skip(2).toArray(String[]::new);
         sender = sender.replaceAll("<", "").replaceAll(">", "");
 
         if (command.equals("level")) {
