@@ -325,16 +325,17 @@ public class NetworkHandler {
         getPlayRegistryIn().get(ProtocolConstants.MINECRAFT_1_15).registerPacket(0x48, PacketInSetExperience.class);
         getPlayRegistryIn().get(ProtocolConstants.MINECRAFT_1_15).registerPacket(0x34, PacketInPlayerListItem.class);
         getPlayRegistryIn().get(ProtocolConstants.MINECRAFT_1_15).registerPacket(0x36, PacketInPlayerPosLook.class);
+        getPlayRegistryIn().get(ProtocolConstants.MINECRAFT_1_15).registerPacket(0x49, PacketInSetHealth.class);
 
         getPlayRegistryOut().get(ProtocolConstants.MINECRAFT_1_15).copyOf(getPlayRegistryOut().get(ProtocolConstants.MINECRAFT_1_14));
-
+        getPlayRegistryOut().get(ProtocolConstants.MINECRAFT_1_15).registerPacket(0x04, PacketOutRespawn.class);
         //Minecraft 1.15.1
         getPlayRegistryIn().get(ProtocolConstants.MINECRAFT_1_15_1).copyOf(getPlayRegistryIn().get(ProtocolConstants.MINECRAFT_1_15));
-        getPlayRegistryOut().get(ProtocolConstants.MINECRAFT_1_15_1).copyOf(getPlayRegistryOut().get(ProtocolConstants.MINECRAFT_1_14));
+        getPlayRegistryOut().get(ProtocolConstants.MINECRAFT_1_15_1).copyOf(getPlayRegistryOut().get(ProtocolConstants.MINECRAFT_1_15));
 
         //Minecraft 1.15.2
         getPlayRegistryIn().get(ProtocolConstants.MINECRAFT_1_15_2).copyOf(getPlayRegistryIn().get(ProtocolConstants.MINECRAFT_1_15));
-        getPlayRegistryOut().get(ProtocolConstants.MINECRAFT_1_15_2).copyOf(getPlayRegistryOut().get(ProtocolConstants.MINECRAFT_1_14));
+        getPlayRegistryOut().get(ProtocolConstants.MINECRAFT_1_15_2).copyOf(getPlayRegistryOut().get(ProtocolConstants.MINECRAFT_1_15));
         
         //20w12a
         getPlayRegistryIn().get(ProtocolConstants.MINECRAFT_20W12A).registerPacket(0x00, PacketInSpawnObject.class);
