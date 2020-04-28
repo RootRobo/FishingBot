@@ -6,7 +6,6 @@
 package systems.kinau.fishingbot.bot;
 
 import com.google.common.io.ByteArrayDataOutput;
-import com.google.common.io.ByteStreams;
 import lombok.Getter;
 import lombok.Setter;
 import systems.kinau.fishingbot.FishingBot;
@@ -14,11 +13,8 @@ import systems.kinau.fishingbot.event.EventHandler;
 import systems.kinau.fishingbot.event.Listener;
 import systems.kinau.fishingbot.event.play.*;
 import systems.kinau.fishingbot.fishing.AnnounceType;
-import systems.kinau.fishingbot.network.protocol.NetworkHandler;
-import systems.kinau.fishingbot.network.protocol.Packet;
 import systems.kinau.fishingbot.network.protocol.ProtocolConstants;
 import systems.kinau.fishingbot.network.protocol.play.PacketOutChat;
-import systems.kinau.fishingbot.network.protocol.play.PacketOutClientSettings;
 import systems.kinau.fishingbot.network.protocol.play.PacketOutRespawn;
 import systems.kinau.fishingbot.network.protocol.play.PacketOutTeleportConfirm;
 
@@ -33,12 +29,10 @@ public class Player implements Listener {
     @Getter @Setter private int experience;
     @Getter @Setter private int levels;
 
-    //RootRobo's code starts here
     @Getter @Setter private int health;
     @Getter @Setter private int food;
     @Getter @Setter private int saturation;
 
-    //and ends here
     @Getter @Setter private int heldSlot;
     @Getter @Setter private ByteArrayDataOutput slotData;
 
@@ -77,14 +71,14 @@ public class Player implements Listener {
     public void onUpdateHP(UpdateHealthEvent event) {
         this.health = event.getHealth();
         this.food = event.getSaturation();
-        if(this.health <= 0) {
+        if(this.health <= 1) {
             double posX = FishingBot.getInstance().getPlayer().x;
             double posY = FishingBot.getInstance().getPlayer().y;
             double posZ = FishingBot.getInstance().getPlayer().z;
             posX = Math.round(posX);
             posY = Math.round(posY);
             posZ = Math.round(posZ);
-            FishingBot.getLog().info("DIED! Respawning ... (Position: " + posX + " " + posY + " " + posZ + ")");
+            FishingBot.getLog().info("BOT DIED! Respawning ... (Position: " + posX + " " + posY + " " + posZ + ")");
             if(!FishingBot.getInstance().getConfig().getDeathMessage().equalsIgnoreCase("false")) {
                 String deathMessage = FishingBot.getInstance().getConfig().getDeathMessage();
                 deathMessage = deathMessage.replace("{X}", String.valueOf(posX));
