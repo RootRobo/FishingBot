@@ -24,6 +24,7 @@ public class ChatProxyModule extends Module implements Listener {
             Scanner scanner = new Scanner(System.in);
             while(!chatThread.isInterrupted()){
                 String line = scanner.nextLine();
+                if(line == "") return;
                 FishingBot.getInstance().getNet().sendPacket(new PacketOutChat(line));
             }
         });
