@@ -21,7 +21,7 @@ public class PacketInSetExperience extends Packet {
 	
 	@Getter private int experience;
 	@Getter private int level;
-	
+
 	@Override
 	public void write(ByteArrayDataOutput out, int protocolId) {
 		//Only incoming packet
