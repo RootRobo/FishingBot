@@ -41,6 +41,13 @@ public class SettingsConfig implements Config {
 
     @Property(key = "stucking-fix-enabled") private boolean stuckingFixEnabled = true;
 
+    @Property(key = "auto-respawn") private boolean AutoRespawnEnabled = true;
+    @Property(key = "death-msg") private String DeathMessage = "I died at X: {X}, Y: {Y}, Z: {Z}!";
+    @Property(key = "bot-owner") private String BotOwner = "YourMinecraftNameHere";
+
+    @Property(key = "announce-enchantment-list") private String AnnounceEnchantementlist = "-> {enchantment}";
+    @Property(key = "announce-message") private String AnnounceMessage = "Cought {item}";
+
     public SettingsConfig() {
         String comments = "server-ip:\tServer IP the bot connects to\n" +
                 "#server-port:\tPort of the server the bot connects to\n" +
