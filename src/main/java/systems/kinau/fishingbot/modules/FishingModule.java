@@ -121,7 +121,7 @@ public class FishingModule extends Module implements Runnable, Listener {
         //Print in mc chat (based on announcetype)
         logItem(currentMax,
                 FishingBot.getInstance().getConfig().getAnnounceTypeChat(),
-                (String str) -> FishingBot.getInstance().getNet().sendPacket(new PacketOutChat(FishingBot.PREFIX + str)),
+                (String str) -> FishingBot.getInstance().getNet().sendPacket(new PacketOutChat(str.replace("{prefix}", FishingBot.PREFIX))),
                 (String str) -> {
                     // Delay the enchant messages to arrive after the item announcement
                     try {
@@ -135,7 +135,9 @@ public class FishingModule extends Module implements Runnable, Listener {
 
 
     private String stringify(Item item) {
-        return "Caught \"" + item.getName() + "\"";
+        String msg = FishingBot.getInstance().getConfig().getAnnounceMessage();
+        msg = msg.replace("{item}", item.getName());
+        return msg;
     }
 
     private void logItem(Item item, AnnounceType noisiness, Consumer<String> announce, Consumer<String> announceEnchants) {
@@ -159,10 +161,11 @@ public class FishingModule extends Module implements Runnable, Listener {
         if (!item.getEnchantments().isEmpty()) {
             for (Map<String, Short> enchantment : item.getEnchantments()) {
                 enchantment.keySet().forEach(s -> {
-                    String asText = "-> "
-                            + s.replace("minecraft:", "").toUpperCase()
-                            + " "
-                            + getRomanLevel(enchantment.get(s));
+                    String asText = FishingBot.getInstance().getConfig().getAnnounceEnchantementlist().replace("{enchantment}",
+                            s.replace("minecraft:", "").toUpperCase()
+                                    + " "
+                                    + getRomanLevel(enchantment.get(s))
+                            );
                     announceEnchants.accept(asText);
                 });
             }
@@ -191,6 +194,10 @@ public class FishingModule extends Module implements Runnable, Listener {
                 return "IX";
             case 10:
                 return "X";
+            case 11:
+                return "XI";
+            case 12:
+                return "XII";
             default:
                 return "" + number;
         }
